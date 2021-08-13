@@ -1,0 +1,13 @@
+ <div>
+    <ol>
+        <li *ngFor="let todo of Todos">
+            <button *ngIf="todo.completed == false" type="button" (click)="completeTask(this.todo)">Complete</button>{{todo.task}}
+            <button  type="button" (click)="removeTask(this.todo)">x</button>
+        </li>
+    </ol>
+</div>
+<form #taskForm="ngForm" (ngSubmit)="addTask(taskForm)">
+    <label for="task">Enter a task!</label>
+    <input name="task" id="task" ngModel />
+    <button>Add your to-do</button>
+</form>
